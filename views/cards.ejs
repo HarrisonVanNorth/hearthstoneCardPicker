@@ -21,10 +21,19 @@
         <input type="text" name='img_url' placeholder='Img_url'>
         <button type='submit' name='button'>Create</button>
     </form>
-    <h3>Your current list:
-
-
-    </h3>
+    <h3>Your current list:</h3>
+    <% for(let i = 0; i < deck.length; i++){ %>
+    <hr>
+    <div>
+        <img src="<%= deck[i].img_url %>" alt="">
+        <p>Name: <%= deck[i].name %></p>
+        <p>Description: <%= deck[i].description %></p>
+        <p>Attack: <%= deck[i].attack %></p>
+        <p>Mana: <%= deck[i].mana %></p>
+        <p>Health: <%= deck[i].health %></p>
+        <a href="/cards/remove/<%= deck[i].id %>">Remove from list</a>
+    </div>
+        <% } %> 
     <h1>All cards:</h1>
     <% for(let i = 0; i < cards.length; i++){ %>
     <hr>
@@ -35,7 +44,7 @@
         <p>Attack: <%= cards[i].attack %></p>
         <p>Mana: <%= cards[i].mana %></p>
         <p>Health: <%= cards[i].health %></p>
-        <a href="/session">Add To List</a>
+        <a href="/cards/add/<%= cards[i].id %>">Add To List</a>
     </div>
         <% } %>    
 
