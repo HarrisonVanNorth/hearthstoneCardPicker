@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <style>
+        * {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hearthstone Card Maker</h1>
+    <form action="/cards/create" method="post">
+        <input type="text" name='name' placeholder='Card Name'>
+        <input type="number" name='description' placeholder='Description'>
+        <input type="number" name='attack' placeholder='Attack'>
+        <input type="number" name='mana' placeholder='Mana'>
+        <input type="number" name='health' placeholder='Health'>
+        <input type="text" name='img_url' placeholder='Img_url'>
+        <button type='submit' name='button'>Create</button>
+    </form>
+    <h3>Your current list:
+
+
+    </h3>
+    <h1>All cards:</h1>
+    <% for(let i = 0; i < cards.length; i++){ %>
+    <hr>
+    <div>
+        <img src="<%= cards[i].img_url %>" alt="">
+        <p>Name: <%= cards[i].name %></p>
+        <p>Description: <%= cards[i].description %></p>
+        <p>Attack: <%= cards[i].attack %></p>
+        <p>Mana: <%= cards[i].mana %></p>
+        <p>Health: <%= cards[i].health %></p>
+        <a href="/session">Add To List</a>
+    </div>
+        <% } %>    
+
+</body>
+</html>
